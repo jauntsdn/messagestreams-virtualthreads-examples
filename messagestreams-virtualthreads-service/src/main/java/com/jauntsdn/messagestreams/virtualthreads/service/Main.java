@@ -2,9 +2,9 @@ package com.jauntsdn.messagestreams.virtualthreads.service;
 
 import com.jauntsdn.messagestreams.virtualthreads.MessageStreamsFactory;
 import com.jauntsdn.rsocket.Disposable;
+import com.jauntsdn.rsocket.Headers;
 import com.jauntsdn.rsocket.ServerStreamsAcceptor;
 import futures.*;
-import io.netty.buffer.ByteBuf;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -55,7 +55,7 @@ public class Main {
   private static class GoodDiner implements Diner {
 
     @Override
-    public Meal order(Order message, ByteBuf metadata) {
+    public Meal order(Order message, Headers metadata) {
       ThreadLocalRandom random = ThreadLocalRandom.current();
       int count = message.getCount();
       int mealCount = random.nextInt(1, count + 1);
@@ -70,7 +70,7 @@ public class Main {
     }
 
     @Override
-    public void pay(Payment message, ByteBuf metadata) {
+    public void pay(Payment message, Headers metadata) {
       logger.info("Received payment: {} $ for order: {}", message.getAmount(), message.getCode());
     }
   }

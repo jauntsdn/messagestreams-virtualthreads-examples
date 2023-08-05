@@ -35,6 +35,7 @@ java {
 
 dependencies {
     protobuf project(":messagestreams-service-idl")
+    protobuf "com.jauntsdn.rsocket:rsocket-rpc-metadata-idl"
 
     implementation project(":messagestreams-runtime")
     implementation "com.jauntsdn.rsocket:rsocket-rpc-virtualthreads"
@@ -71,6 +72,7 @@ if (findProperty("generateProto") == "true" && ["linux", "windows"].contains(osd
                     messageStreamsRpc {
                         option "metadataless-method-definitions"
                         option "generate-codec-suffix=none"
+                        option "typed-metadata"
                     }
                 }
             }
