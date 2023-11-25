@@ -15,7 +15,7 @@ subprojects {
             dependency "io.grpc:protoc-gen-grpc-java:${grpcVersion}"
             dependency "io.grpc:grpc-protobuf:${grpcVersion}"
             dependency "io.grpc:grpc-stub:${grpcVersion}"
-            dependency "io.grpc:grpc-netty:${grpcVersion}"
+            dependency "io.grpc:grpc-netty-shaded:${grpcVersion}"
         }
     }
 }
