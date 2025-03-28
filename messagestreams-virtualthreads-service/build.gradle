@@ -23,13 +23,13 @@ plugins {
 description = "jauntsdn-messageStreams: virtualthreads service"
 
 compileJava {
-    sourceCompatibility = 20
-    targetCompatibility = 20
+    sourceCompatibility = 21
+    targetCompatibility = 21
 }
 
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(20)
+        languageVersion = JavaLanguageVersion.of(21)
     }
 }
 

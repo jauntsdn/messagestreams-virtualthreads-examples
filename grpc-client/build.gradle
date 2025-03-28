@@ -7,13 +7,13 @@ plugins {
 description = "jauntsdn-messagestreams: virtualthreads grpc client"
 
 compileJava {
-    sourceCompatibility = 20
-    targetCompatibility = 20
+    sourceCompatibility = 21
+    targetCompatibility = 21
 }
 
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(20)
+        languageVersion = JavaLanguageVersion.of(21)
     }
 }
 
@@ -90,6 +90,6 @@ task runMain(type: JavaExec) {
     classpath = sourceSets.main.runtimeClasspath
     mainClass = mainClassName
     javaLauncher = javaToolchains.launcherFor {
-        languageVersion = JavaLanguageVersion.of(20)
+        languageVersion = JavaLanguageVersion.of(21)
     }
 }
