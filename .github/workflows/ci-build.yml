@@ -24,7 +24,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: |
-            20
+            21
             17
           distribution: 'temurin'
       - name: Cache Gradle packages
@@ -34,8 +34,4 @@ jobs:
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
           restore-keys: ${{ runner.os }}-gradle
       - name: Build with Gradle
-        if: ${{ matrix.os != 'windows-2019' }}
-        run: ./gradlew clean build --no-daemon -Dorg.gradle.java.installations.fromEnv=JAVA_HOME_20_X64
-      - name: Build with Gradle on Windows
-        if: ${{ matrix.os == 'windows-2019' }}
         run: ./gradlew clean build --no-daemon
